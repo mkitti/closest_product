@@ -1,37 +1,6 @@
-## Welcome to GitHub Pages
+# Closest Product Python Twitter Challenge¶
+https://twitter.com/loicaroyer/status/1146173537658404864
 
-You can use the [editor on GitHub](https://github.com/mkitti/closest_product/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Given a list of integers u=[a_0, ..., a_m] find the set of indices {i_0, ..., i_n} for that list such that the product u[i_0] ... u[i_n] is the closest to a given integer N. The shortest and most #elegant solution wins. (standard libs allowed)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mkitti/closest_product/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Included here are the [Jupyter notebook](royer_closest_product.ipynb), [HTML export](royer_closest_product.html), and [python code](royer_closest_product.py).
