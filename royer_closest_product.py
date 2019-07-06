@@ -80,14 +80,14 @@ def closest_product_no_repetition(N,u):
     Mg = it.chain.from_iterable(
         ( 
             (N-y,N+y) if y != 0 else (N,)
-            for y in range(min(abs(N-u)))
+            for y in range(min(abs(N-u))+1)
         )
     )
 
     # For each M construct a list of divisors
     # Each generated element is a tuple: (divisors,M)
     divisors = filter(
-        lambda f: f[0].size > 1,
+        lambda f: f[0].size > 0,
         (
             (u[M % u == 0],M) for M in Mg
         )
@@ -143,7 +143,7 @@ def closest_product_with_repetition(N,u):
     Mg = it.chain.from_iterable(
         ( 
             (N-y,N+y) if y != 0 else (N,)
-            for y in range(min(abs(N-u)))
+            for y in range(min(abs(N-u))+1)
         )
     )
 
@@ -219,7 +219,7 @@ def peek_with_label(iterable,num=10,label=''):
 Mg = it.chain.from_iterable(
     ( 
         (N-y,N+y) if y != 0 else (N,)
-        for y in range(min(abs(N-u)))
+        for y in range(min(abs(N-u))+1)
     )
 )
 Mg = peek_with_label(Mg,10,'M generator:')
@@ -309,7 +309,7 @@ def closest_product(N,u,repetition=False):
     Mg = it.chain.from_iterable(
         ( 
             (N-y,N+y) if y != 0 else (N,)
-            for y in range(min(abs(N-u)))
+            for y in range(min(abs(N-u))+1)
         )
     )
 
@@ -338,7 +338,7 @@ def closest_product(N,u,repetition=False):
         # For each M construct a list of divisors
         # Each generated element is a tuple: (divisors,M)
         divisors = filter(
-            lambda f: f[0].size > 1,
+            lambda f: f[0].size > 0,
             (
                 (u[M % u == 0],M) for M in Mg
             )
@@ -387,10 +387,20 @@ closest_product(8,np.array([2,3]),repetition=True)
 
 # In[20]:
 
-closest_product(N,u,repetition=False)
+closest_product(8,[8],repetition=False)
 
 
 # In[21]:
+
+closest_product(8,[8],repetition=True)
+
+
+# In[22]:
+
+closest_product(N,u,repetition=False)
+
+
+# In[23]:
 
 closest_product(N,u,repetition=True)
 
@@ -399,7 +409,7 @@ closest_product(N,u,repetition=True)
 # 
 # If we create a random challenging case, executing time is in the milliseconds
 
-# In[22]:
+# In[24]:
 
 challenging_N = np.random.randint(101,2**20)
 challenging_u = np.random.choice(range(2,1010),100,False)
@@ -407,16 +417,11 @@ print('challenging_N: ',challenging_N)
 print('challenging_u: ',challenging_u)
 
 
-# In[23]:
+# In[25]:
 
 get_ipython().magic('time i = closest_product(challenging_N,challenging_u,repetition=False)')
 i = closest_product(challenging_N,challenging_u,repetition=False)
 print('i: ',i)
 print('u[i]: ',challenging_u[i])
 print('u[i].prod(): ',challenging_u[i].prod())
-
-
-# In[ ]:
-
-
 

@@ -11874,7 +11874,7 @@ u:  [ 5  9 19 22 25 27 28 31 33 34 36 43 44 68 72 81 86 92 96 98]
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1 loop, best of 3: 9.46 s per loop
+<pre>1 loop, best of 3: 7.91 s per loop
 i:  [ 3 10]
 u[i]:  [22 36]
 u[i].prod():  792
@@ -11917,14 +11917,14 @@ u[i].prod():  792
     <span class="n">Mg</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span>
         <span class="p">(</span> 
             <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="n">N</span><span class="p">,)</span>
-            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">u</span><span class="p">)))</span>
+            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">u</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">)</span>
     <span class="p">)</span>
 
     <span class="c1"># For each M construct a list of divisors</span>
     <span class="c1"># Each generated element is a tuple: (divisors,M)</span>
     <span class="n">divisors</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
-        <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
         <span class="p">(</span>
             <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">M</span> <span class="o">%</span> <span class="n">u</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span><span class="n">M</span><span class="p">)</span> <span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">Mg</span>
         <span class="p">)</span>
@@ -11988,7 +11988,7 @@ u[i].prod():  792
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1000 loops, best of 3: 195 µs per loop
+<pre>1000 loops, best of 3: 190 µs per loop
 i:  [3, 10]
 u[i]:  [22 36]
 u[i].prod():  792
@@ -12020,7 +12020,7 @@ u[i].prod():  792
     <span class="n">Mg</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span>
         <span class="p">(</span> 
             <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="n">N</span><span class="p">,)</span>
-            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">u</span><span class="p">)))</span>
+            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">u</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">)</span>
     <span class="p">)</span>
 
@@ -12094,7 +12094,7 @@ u[i].prod():  792
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>1000 loops, best of 3: 1.26 ms per loop
+<pre>1000 loops, best of 3: 1.05 ms per loop
 i:  [3, 10]
 u[i]:  [22 36]
 u[i].prod():  792
@@ -12143,7 +12143,7 @@ u[i].prod():  792
 <span class="n">Mg</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span>
     <span class="p">(</span> 
         <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="n">N</span><span class="p">,)</span>
-        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">u</span><span class="p">)))</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">u</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
     <span class="p">)</span>
 <span class="p">)</span>
 <span class="n">Mg</span> <span class="o">=</span> <span class="n">peek_with_label</span><span class="p">(</span><span class="n">Mg</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s1">&#39;M generator:&#39;</span><span class="p">)</span>
@@ -12661,7 +12661,7 @@ u[i].prod():  792
     <span class="n">Mg</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span>
         <span class="p">(</span> 
             <span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">y</span><span class="p">,</span><span class="n">N</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="p">(</span><span class="n">N</span><span class="p">,)</span>
-            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">u</span><span class="p">)))</span>
+            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="n">u</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">)</span>
     <span class="p">)</span>
 
@@ -12690,7 +12690,7 @@ u[i].prod():  792
         <span class="c1"># For each M construct a list of divisors</span>
         <span class="c1"># Each generated element is a tuple: (divisors,M)</span>
         <span class="n">divisors</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
-            <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
             <span class="p">(</span>
                 <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">M</span> <span class="o">%</span> <span class="n">u</span> <span class="o">==</span> <span class="mi">0</span><span class="p">],</span><span class="n">M</span><span class="p">)</span> <span class="k">for</span> <span class="n">M</span> <span class="ow">in</span> <span class="n">Mg</span>
             <span class="p">)</span>
@@ -12802,7 +12802,7 @@ u[i].prod():  792
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">closest_product</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">repetition</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">closest_product</span><span class="p">(</span><span class="mi">8</span><span class="p">,[</span><span class="mi">8</span><span class="p">],</span><span class="n">repetition</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12817,7 +12817,7 @@ u[i].prod():  792
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[3, 10]</pre>
+<pre>[0]</pre>
 </div>
 
 </div>
@@ -12831,7 +12831,7 @@ u[i].prod():  792
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">closest_product</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">repetition</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">closest_product</span><span class="p">(</span><span class="mi">8</span><span class="p">,[</span><span class="mi">8</span><span class="p">],</span><span class="n">repetition</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12843,6 +12843,64 @@ u[i].prod():  792
 
 
 <div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[0]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">closest_product</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">repetition</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[3, 10]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">closest_product</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">repetition</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12867,7 +12925,7 @@ u[i].prod():  792
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">challenging_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="mi">2</span><span class="o">**</span><span class="mi">20</span><span class="p">)</span>
@@ -12886,15 +12944,15 @@ u[i].prod():  792
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>challenging_N:  621229
-challenging_u:  [ 338  722  335  100  955  272  514  516  172  661  757  877  617  874
-  237  328  953  901  552  694  844  933  574  508  116  428  336  752
-  949  207  473  366  220  185  222  262   23  485  488  114   77  343
-   37  843  490  622  466  259  110  554  520  837  352   48  501  735
-  278  450  873  792   66  919  804  153  619  798  243  681  144 1001
-  412  351  737  635  715  238  697  911  480  182  576   47  643  788
-  394  651  571  492  905  218  414  678  383  314  660  393  588  459
-  638  124]
+<pre>challenging_N:  121048
+challenging_u:  [ 955   96  249  501  167  940  607  923  186  871  118  470  772  773
+  112  805  349  605  890  423  692  335  251  663   82  959  344  882
+   16  602  488  454  383  520  320  311  804  408   52   93   65  137
+   62  723  544  160  894  510  356  338  414  364  868  579  202  898
+  827  492  273  846  215  306  615  479  565  405  981  512  474  380
+  168  682  391  535   38  100  551  872  702  191  572  353  250  467
+   30   26  866  188   36  967  743  398  709  886  193 1004  584  554
+  731  393]
 </pre>
 </div>
 </div>
@@ -12905,7 +12963,7 @@ challenging_u:  [ 338  722  335  100  955  272  514  516  172  661  757  877  61
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">time</span> i = closest_product(challenging_N,challenging_u,repetition=False)
@@ -12925,28 +12983,15 @@ challenging_u:  [ 338  722  335  100  955  272  514  516  172  661  757  877  61
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>CPU times: user 2.99 ms, sys: 1 ms, total: 3.99 ms
-Wall time: 4.01 ms
-i:  [43, 72]
-u[i]:  [843 737]
-u[i].prod():  621291
+<pre>CPU times: user 6.94 ms, sys: 0 ns, total: 6.94 ms
+Wall time: 6.89 ms
+i:  [14, 84, 88]
+u[i]:  [112  30  36]
+u[i].prod():  120960
 </pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
 </div>
 </div>
 
